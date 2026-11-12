@@ -5,6 +5,8 @@
   "description": "Simulador visual para entender o N08EVANDRO.pas passo a passo.",
   "scripts": {
     "test": "node tests.cjs",
-    "source": "node scripts/prepare-source.cjs"
+    "source": "node scripts/prepare-source.cjs",
+    "offline": "node scripts/package-offline.cjs",
+    "start": "node scripts/serve.cjs"
   }
 }

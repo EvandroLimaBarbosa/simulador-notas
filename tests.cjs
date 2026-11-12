@@ -77,3 +77,28 @@ for(const step of replay.filter(s=>s.op==='weight')) {
 }
 console.log('OK: weights, means, physical mapping, absent preservation, validation, duplicates, missing notes, empty input, CRLF, reruns and SEEK/WRITE.');
 console.log('OK: original Pascal source, all 24 exact line ranges, source mapping and duplicate counter.');
+const tutor=require('./debug-engine.js');
+for(const scenario of ['normal','invalid','duplicate','missing','absent']){
+  const frames=tutor.buildLesson(E,scenario);
+  const first=frames[0],last=frames.at(-1);
+  assert.ok(frames.length>30);
+  for(const frame of frames){assert.ok(frame.line>=1&&frame.end<=185&&frame.end>=frame.line);assert.ok(frame.say);}
+  assert.equal(first.state.candidate,null);
+  const expected=E.run(last.state.disk.map((c,i)=>first.state.disk[i]),last.state.rows.join('\n'));
+  assert.deepEqual(last.state.disk,expected.candidates,scenario+' tutor must match engine');
+  if(expected.blocked)assert.equal(last.line,143,scenario+' must stop at HALT');
+  else assert.equal(last.line,184);
+  for(const frame of frames){
+    if(frame.state.candidate)assert.deepEqual(frame.state.vars.candidato,frame.state.candidate);
+    if(frame.state.candidate)for(const [key,value] of Object.entries(frame.state.vars)){
+      if(key.startsWith('candidato.')&&Object.hasOwn(frame.state.candidate,key.slice(10)))assert.deepEqual(value,frame.state.candidate[key.slice(10)]);
+    }
+    if(frame.line===168)assert.equal(frame.state.cursor,frame.state.focus+1);
+  }
+  const readFrames=frames.filter(f=>f.line===58);
+  assert.equal(readFrames.length,3);
+  assert.equal(readFrames[0].state.candidate.num,30);
+  assert.equal(readFrames[1].state.candidate.num,10);
+  assert.equal(readFrames[0].state.candidate.num,30,'Snapshots must not change when advancing');
+}
+console.log('OK: guided debugger, five scenarios, exact source line ranges, memory snapshots and single-record READ.');

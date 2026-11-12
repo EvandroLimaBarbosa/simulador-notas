@@ -1,72 +1,95 @@
-# N08EVANDRO Visual
+<p align="center">
+  <img src="docs/banner.svg" alt="N08EVANDRO Visual — laboratório interativo de Pascal e JavaScript" width="100%">
+</p>
 
-Simulador interativo para entender o programa **N08EVANDRO.pas**, de **Evandro Lima Barbosa**, desenvolvido para o trabalho 08 da disciplina DS110.
+<h1 align="center">N08EVANDRO Visual</h1>
 
-A página mostra como as notas de `NOTAS.TXT` encontram o candidato correto em `CAND.IND`, como os dados são conferidos e como o programa calcula as notas com peso e as médias sem peso. Cada passo pode ser relacionado a um trecho do código Pascal original.
+<p align="center">
+  Um laboratório interativo para entender um programa Pascal vendo seus dados, suas variáveis e seus cálculos em ação.
+</p>
 
-## O que você pode fazer
+<p align="center">
+  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
+  <img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css&logoColor=white">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black">
+  <img alt="Sem dependências externas" src="https://img.shields.io/badge/depend%C3%AAncias-zero-087A73?style=flat-square">
+</p>
 
-- Avançar, voltar e reproduzir a execução automaticamente.
-- Acompanhar a formação e a ordenação do vetor de candidatos presentes.
-- Observar a pesquisa binária e a relação entre inscrição, índice e posição física.
-- Ver a separação dos sete campos de cada linha de notas.
-- Conferir a aplicação dos pesos e a soma de cada candidato.
-- Entender o reposicionamento de `SEEK` antes de `WRITE`.
-- Experimentar notas inválidas, duplicidades, presentes sem notas e ausência de presentes.
-- Editar candidatos e notas e importar ou exportar JSON e TXT.
-- Estudar o Pascal original em 24 blocos, com números de linha e exemplos.
-- Comparar os trechos Pascal com equivalências didáticas em JavaScript.
-- Acompanhar contadores com os mesmos nomes do programa original.
+<p align="center">
+  <a href="#sobre-o-projeto">Sobre</a> ·
+  <a href="#funcionalidades">Funcionalidades</a> ·
+  <a href="#executar-localmente">Executar</a> ·
+  <a href="#estrutura-do-projeto">Estrutura</a> ·
+  <a href="#publicar-no-vercel">Deploy</a>
+</p>
 
-## Como abrir no computador
+## Sobre o projeto
 
-1. Baixe o repositório em **Code → Download ZIP**, ou clone-o.
-2. Extraia o ZIP, se necessário.
-3. Abra o arquivo `index.html` no navegador.
+O **N08EVANDRO Visual** transforma a lógica do programa `N08EVANDRO.pas` em uma experiência de aprendizado no navegador. Foi criado para apoiar o estudo e a apresentação do trabalho 08 da disciplina **DS110**, permitindo relacionar cada trecho do Pascal ao que acontece com os dados.
 
-Não é necessário instalar dependências, iniciar um servidor ou ter conexão com a internet para usar a página depois de baixá-la.
+O programa original atualiza as notas de candidatos presentes em um concurso. Este simulador torna esse processo visível: mostra a formação do vetor de busca, a pesquisa por inscrição, a conferência das notas, a aplicação dos pesos e o cálculo das médias.
 
-## Começando a estudar
+O código Pascal de **Evandro Lima Barbosa** acompanha o projeto e é apresentado em **24 blocos explicados**, com seus nomes de variáveis e números de linha preservados.
 
-1. Na aba **Laboratório**, mantenha o cenário **Tudo certo · exemplo completo**.
-2. Clique em **Começar simulação**.
-3. Use **Próximo passo** e observe a explicação, o código e os dados.
-4. Abra **Variáveis do seu programa** para acompanhar os valores conhecidos naquele ponto.
-5. Use **Entender este bloco do meu código** para ler a explicação do trecho original.
-6. Depois, experimente um cenário com erro ou modifique a entrada na aba **Dados de entrada**.
+## Funcionalidades
 
-Na aba **Seu código Pascal**, você também pode escolher um dos 24 blocos e, quando existir um passo correspondente no cenário atual, clicar em **Ver este bloco em ação**.
+### Aula guiada para quem está começando
 
-## Como funciona
+Abra **`debug.html`** ou clique em **Começar aula guiada** no laboratório. Esse modo usa um exemplo pequeno, com dois presentes e um ausente, e apresenta uma instrução por vez.
 
-O projeto usa **HTML, CSS e JavaScript puro**, sem framework e sem bibliotecas externas.
+- Começa por `FILE OF regis`, `regis`, `ASSIGN`, `RESET` e `READ`.
+- Destaca as linhas originais e mostra valores **antes e depois** de cada comando.
+- Separa visualmente o arquivo guardado da ficha na memória.
+- Permite avançar, voltar, trocar de capítulo e reproduzir como uma aula automática.
+- Oferece leitura em voz alta quando o navegador tem suporte e uma voz disponível.
+- Inclui pequenas pausas para pensar, com resposta opcional.
+- Percorre cinco cenários: normal, nota inválida, duplicidade, presente sem notas e todos ausentes.
 
-Toda a simulação é executada no navegador. Não há backend nem banco de dados. Os candidatos e as notas ficam em objetos e arrays na memória da aba. Recarregar ou fechar a página descarta as edições; use a exportação para guardar seus dados e importá-los em outra execução.
+A aula é uma simulação didática, não uma execução do compilador Pascalzim. A narração usa as vozes do navegador e pode depender do sistema e da conexão.
 
-O `CAND.IND` mostrado na tela é uma representação visual do cadastro. O simulador não lê nem modifica o arquivo binário original do Pascal. Para a entrada do laboratório, o cadastro usa JSON e as notas usam TXT.
+| Recurso | O que você acompanha |
+| --- | --- |
+| **Execução passo a passo** | Avance, volte ou reproduza a sequência automaticamente, com controle de velocidade. |
+| **Código original explicado** | Leia cada bloco Pascal, veja seus números de linha e vá ao passo correspondente da simulação. |
+| **Vetor CC + PF** | Entenda a diferença entre inscrição, índice do vetor e posição física no cadastro. |
+| **Pesquisa binária visual** | Observe o intervalo da busca e o elemento escolhido como meio. |
+| **Variáveis ao vivo** | Acompanhe contadores, marcas de recebimento e acumuladores com os nomes do programa. |
+| **Validação dos dados** | Experimente notas inválidas, duplicidades e candidatos presentes sem notas. |
+| **Pesos e médias** | Veja por que o total do candidato usa pesos e a média da disciplina usa as notas originais. |
+| **Entrada editável** | Modifique candidatos e notas, gere linhas de TXT e importe ou exporte arquivos. |
+| **Pascal e JavaScript** | Compare os trechos originais com suas equivalências didáticas. |
 
-### Caminho do algoritmo
+### Telas disponíveis
 
-```text
-Ler o cadastro e separar os presentes
-                  ↓
-Guardar inscrição (CC) e posição física (PF)
-                  ↓
-Ordenar o vetor pela inscrição
-                  ↓
-Ler NOTAS.TXT e pesquisar as inscrições
-                  ↓
-Conferir formato, notas, duplicidades e faltas de notas
-                  ↓
-Se houver erro: encerrar antes de gravar
-                  ↓
-Se estiver correto: localizar cada registro pela PF
-                  ↓
-Aplicar pesos, somar e zerar classificações
-                  ↓
-Voltar à mesma PF e gravar
-                  ↓
-Mostrar as médias das disciplinas sem peso
+- **Laboratório:** execução visual, cadastro, vetor de busca, linha de notas, cálculos e resultados.
+- **Seu código Pascal:** navegação pelos 24 blocos, explicações e visualização do arquivo completo.
+- **Dados de entrada:** edição do cadastro e do TXT, importação, exportação e gerador de linhas.
+- **Conceitos básicos:** explicações de registros, arrays, índices, pesquisa binária e operações com arquivos.
+
+## Executar localmente
+
+**Basta abrir o `index.html` no navegador.** O site funciona sem instalação, sem servidor e sem internet depois de baixado.
+
+1. Baixe o projeto em **Code → Download ZIP**.
+2. Extraia o arquivo.
+3. Abra `index.html`.
+
+Para começar, mantenha o cenário **Tudo certo · exemplo completo** e clique em **Começar simulação**. Avance pelo fluxo e, depois, selecione um dos cenários com erro para observar o bloqueio da gravação.
+
+## A lógica por trás da simulação
+
+```mermaid
+flowchart TD
+    A[Ler o cadastro] --> B[Separar candidatos presentes]
+    B --> C[Montar e ordenar o vetor CC + PF]
+    C --> D[Ler NOTAS.TXT e pesquisar as inscrições]
+    D --> E[Conferir as notas de todos os presentes]
+    E --> F{Há erros?}
+    F -->|Sim| G[Encerrar sem atualizar o cadastro]
+    F -->|Não| H[Localizar cada registro pela PF]
+    H --> I[Aplicar pesos e calcular a soma]
+    I --> J[Voltar à mesma PF e gravar]
+    J --> K[Exibir as médias sem peso]
 ```
 
 ### Disciplinas e pesos
@@ -76,133 +99,111 @@ Mostrar as médias das disciplinas sem peso
 | L.E.M. | 1 |
 | Matemática | 1 |
 | Lógica | 1 |
-| Conhecimento específico | 3 |
-| Informática | 2 |
+| Conhecimento específico | **3** |
+| Informática | **2** |
 | Atualidades | 1 |
 
-A soma do candidato utiliza os pesos. As médias das disciplinas utilizam as notas originais dos presentes atualizados.
+Por exemplo, as notas originais `[80, 70, 60, 90, 85, 75]` produzem as notas com peso `[80, 70, 60, 270, 170, 75]`, totalizando **725 pontos**. Para a média de cada disciplina, continuam sendo utilizadas as notas originais.
 
-### Formato de NOTAS.TXT
+### Arquivo de notas
 
-Cada linha contém exatamente **28 caracteres**:
-
-| Colunas | Conteúdo |
-| --- | --- |
-| 1–4 | Inscrição |
-| 5–8 | Nota 1 |
-| 9–12 | Nota 2 |
-| 13–16 | Nota 3 |
-| 17–20 | Nota 4 |
-| 21–24 | Nota 5 |
-| 25–28 | Nota 6 |
-
-Exemplo com inscrição `0012` e seis notas:
+Cada linha de `NOTAS.TXT` tem **28 caracteres**: quatro para a inscrição e seis campos de quatro caracteres para as notas.
 
 ```text
 0012  80  70  60  90  85  75
 ```
 
-Os espaços completam os campos e contam no tamanho da linha. A aba **Dados de entrada** inclui um gerador para montar linhas no formato correto.
+Os espaços fazem parte dos campos. A interface oferece um gerador para montar linhas nesse formato.
 
-## Arquivos do projeto
+## Tecnologias e arquitetura
+
+| Tecnologia | Responsabilidade |
+| --- | --- |
+| **HTML5** | Estrutura das telas e dos controles. |
+| **CSS3** | Apresentação visual e layout responsivo. |
+| **JavaScript** | Algoritmo, etapas da simulação e atualização da interface. |
+| **Node.js** | Execução opcional dos testes e geração dos trechos do Pascal. |
+| **Vercel** | Configuração incluída para publicação estática. |
+
+O núcleo da simulação fica separado da interface: `engine.js` produz os passos e calcula as alterações; `app.js` conecta os resultados aos controles e elementos da página.
+
+**Toda a execução acontece no navegador.** O projeto não utiliza backend, banco de dados ou dependências externas de execução. As edições ficam na memória da aba e são descartadas ao recarregar a página. Para guardá-las, utilize a exportação e importe os arquivos em uma próxima sessão.
+
+O cadastro binário `CAND.IND` é representado por registros em memória. O simulador trabalha com JSON e TXT e não modifica o arquivo original do Pascal.
+
+## Estrutura do projeto
 
 ```text
 n08evandro-visual/
-├── index.html               Estrutura da página e das telas
-├── styles.css               Estilos e adaptação a telas menores
-├── app.js                   Interface, navegação e controles
-├── engine.js                Lógica da simulação e passos de execução
-├── original-source.js       Pascal original e explicação dos 24 blocos
-├── N08EVANDRO.pas           Código Pascal enviado pelo autor
+├── index.html              # Telas da aplicação
+├── styles.css              # Estilos e responsividade
+├── app.js                  # Interface, navegação e controles
+├── engine.js               # Algoritmo e passos da simulação
+├── debug.html              # Aula com uma instrução por vez
+├── debug.css               # Apresentação da aula guiada
+├── debug.js                # Controles e narração opcional
+├── debug-engine.js         # Quadros detalhados da depuração
+├── original-source.js      # Pascal original e explicações
+├── N08EVANDRO.pas          # Programa Pascal estudado
+├── docs/
+│   └── banner.svg          # Apresentação do repositório
 ├── scripts/
-│   └── prepare-source.cjs   Gera os trechos mostrados pela página
-├── tests.cjs                Verificações da lógica e do código original
-├── package.json             Comandos de verificação, sem dependências
-├── vercel.json              Configuração para hospedagem estática
-├── .vercelignore            Arquivos auxiliares excluídos da publicação
-├── .gitignore               Arquivos locais ignorados pelo Git
-├── .gitattributes           Padronização das quebras de linha
-└── README.md                Este documento
+│   └── prepare-source.cjs  # Geração dos blocos do Pascal
+├── tests.cjs               # Verificações do algoritmo
+├── package.json            # Comandos de desenvolvimento
+├── vercel.json             # Configuração de publicação
+└── README.md
 ```
 
-## Publicar no GitHub
+## Testes
 
-1. Crie um repositório chamado **n08evandro-visual**.
-2. Envie o **conteúdo desta pasta** para a raiz do repositório. O `index.html` deve aparecer diretamente na raiz.
-3. Inclua os arquivos de configuração que começam com ponto. Se usar a interface do GitHub, confira se também foram enviados.
-4. Faça o commit dos arquivos.
-
-Se preferir enviar pelo terminal, execute dentro desta pasta, substituindo `SEU-USUARIO` pelo seu usuário do GitHub:
-
-```bash
-git init
-git add .
-git commit -m "feat: adiciona simulador visual do N08EVANDRO"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/n08evandro-visual.git
-git push -u origin main
-```
-
-Esses comandos são para uma pasta nova. Se ela já for um repositório, confira a branch e o remoto existente antes de configurar outro.
-
-## Hospedar no Vercel
-
-1. Entre no Vercel e selecione **Add New → Project**.
-2. Importe o repositório do GitHub.
-3. Mantenha a raiz do repositório como **Root Directory**.
-4. O arquivo `vercel.json` já define a publicação estática:
-
-| Configuração | Valor |
-| --- | --- |
-| Framework | Other |
-| Build Command | Vazio |
-| Install Command | Vazio |
-| Output Directory | `.` |
-
-5. Clique em **Deploy**.
-
-Não são necessárias variáveis de ambiente, credenciais de Sites ou configuração de banco de dados. A publicação no Vercel é independente da hospedagem usada para demonstrar o projeto nesta conversa.
-
-## Verificar o código
-
-Para abrir e usar o site, Node.js não é necessário. Para executar as verificações, instale Node.js e rode na raiz do projeto:
+Com **Node.js** instalado, execute na raiz do projeto:
 
 ```bash
 npm test
 ```
 
-Ou, diretamente:
+Não é necessário executar `npm install`: o projeto não possui dependências de pacote.
 
-```bash
-node tests.cjs
-```
+Para gerar uma cópia com os estilos e scripts embutidos, execute `npm run offline`. Abra `offline/debug.html` para a aula ou `offline/index.html` para o laboratório. Para servir localmente por HTTP, execute `npm start` e acesse o endereço exibido no terminal.
 
-Os testes verificam pesos, médias, correspondência entre inscrição e PF, preservação dos ausentes, validação, duplicidades, presentes sem notas, nova execução sem multiplicar os pesos novamente e reposicionamento antes de gravar. Também verificam os trechos e números de linha do Pascal original.
+As verificações cobrem aplicação dos pesos, médias sem peso, correspondência entre inscrição e posição física, preservação dos ausentes, validação, duplicidades, presentes sem notas, ausência de presentes e reposicionamento antes da gravação. Também conferem os trechos do Pascal e seus intervalos de linha.
 
-## Atualizar as explicações
-
-- Para mudar a interface ou as equivalências em JavaScript, edite `app.js`.
-- Para mudar a lógica e os eventos da simulação, edite `engine.js`.
-- Para mudar as explicações dos blocos Pascal, edite os textos em `scripts/prepare-source.cjs` e execute:
+Para regenerar o arquivo de explicações após editar os textos em `scripts/prepare-source.cjs`:
 
 ```bash
 npm run source
 ```
 
-O comando lê `N08EVANDRO.pas` e recria `original-source.js`. Os intervalos de linha foram definidos para o código fornecido: se alterar a estrutura do Pascal, ajuste também esses intervalos e execute os testes.
+Se alterar a estrutura do Pascal, ajuste também os intervalos de linha definidos nesse script.
 
-## Limites da simulação
+## Publicar no Vercel
 
-- O Pascal é apresentado como material de estudo; a página não é um compilador Pascalzim.
-- Os índices do Pascal começam em 1 nos vetores deste programa; os arrays JavaScript começam em 0. A interface explicita essa diferença.
-- A ordenação reproduz o resultado de `ORDEM`; as trocas internas dessa rotina não são animadas.
-- A busca binária representa o trabalho de `PEBIN1`, cuja implementação pertence à unit `TARDENOITE`.
-- O cursor de `SEEK`, `READ` e `WRITE` é simulado para explicar o acesso ao arquivo original.
-- A conferência antes de gravar não representa uma transação com recuperação de falhas durante gravações.
-- A classificação dos candidatos pertence ao trabalho 09; o N08 apenas zera os campos correspondentes dos registros atualizados.
+1. Envie os arquivos para seu repositório no GitHub, mantendo `index.html` na raiz.
+2. No Vercel, crie um projeto e importe o repositório.
+3. Mantenha a raiz do repositório como diretório do projeto.
+4. Clique em **Deploy**.
 
-## Autoria
+O `vercel.json` incluído já define as configurações:
 
-Código Pascal original: **Evandro Lima Barbosa**.
+| Configuração | Valor |
+| --- | --- |
+| Framework Preset | `Other` |
+| Build Command | Vazio |
+| Install Command | Vazio |
+| Output Directory | `.` |
 
-Simulador web preparado com auxílio do Codex para estudo e apresentação da lógica do programa.
+Não são necessárias variáveis de ambiente nem configuração de banco de dados.
+
+## Escopo didático
+
+A página simula a lógica do programa; ela não compila Pascal nem reproduz o formato binário de seus arquivos. A ordenação mostra o resultado de `ORDEM`, e a animação da pesquisa representa o trabalho de `PEBIN1`, rotinas da unit `TARDENOITE`.
+
+A interface também explicita duas diferenças: os vetores do Pascal deste programa começam em **1**, enquanto os arrays JavaScript começam em **0**; e o cursor de `SEEK`, `READ` e `WRITE` é representado visualmente para explicar as operações do original.
+
+## Autor
+
+**Evandro Lima Barbosa**  
+Programa original: `N08EVANDRO.pas` · Disciplina: **DS110** · Trabalho: **08**
+
+Interface e adaptação didática desenvolvidas com auxílio do Codex.

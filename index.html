@@ -6,6 +6,7 @@
   <meta name="description" content="Entenda o N08EVANDRO em um laboratório visual: avance pelo código, observe a pesquisa binária, aplique os pesos e descubra as médias.">
   <title>N08EVANDRO explicado · Seu código passo a passo</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="debug.css">
   <script defer src="engine.js"></script><script defer src="original-source.js"></script><script defer src="app.js"></script>
 </head>
 <body>
@@ -16,6 +17,7 @@
   <main>
     <section id="view-laboratorio" class="view">
       <div class="page-heading"><div><p class="eyebrow">N08EVANDRO.PAS <span> EVANDRO LIMA BARBOSA · DS110</span></p><h1>Seu código, por dentro<span>.</span></h1><p class="lede">Acompanhe seu programa Pascal com os trechos originais, as variáveis e exemplos visíveis.</p></div><button class="button secondary" id="edit-data">Editar os dados <span aria-hidden="true">↗</span></button></div>
+      <div class="debug-entry"><div><strong>Está começando? Acompanhe uma instrução por vez.</strong><p>FILE OF regis, ASSIGN, RESET e READ explicados do zero, com antes e depois na memória.</p></div><a class="button primary" href="debug.html">Começar aula guiada →</a></div>
       <div class="scenario-bar"><label for="scenario">Experimente um cenário</label><select id="scenario"><option value="normal">Tudo certo · exemplo completo</option><option value="invalid">Uma nota maior que 100</option><option value="duplicate">Inscrição com notas duplicadas</option><option value="missing">Um presente sem notas</option><option value="absent">Todos os candidatos ausentes</option><option value="custom" hidden>Seus dados personalizados</option></select><span id="scenario-hint">4 presentes, 1 ausente e 1 inscrição inexistente.</span></div>
       <ol id="phases" class="phase-track" aria-label="Etapas do programa"></ol>
       <div class="workbench">
