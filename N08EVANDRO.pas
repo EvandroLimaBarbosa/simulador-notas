@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2449d8">
+  <meta name="description" content="Entenda o N08EVANDRO em um laboratório visual: avance pelo código, observe a pesquisa binária, aplique os pesos e descubra as médias.">
+  <title>N08EVANDRO explicado · Seu código passo a passo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="engine.js"></script><script defer src="original-source.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#laboratorio"><span class="brand-mark">N<span>08</span></span><span>N08 <strong>por dentro</strong><small>LABORATÓRIO DE CÓDIGO</small></span></a>
+    <nav aria-label="Navegação principal"><a href="#laboratorio" data-nav="laboratorio">Laboratório</a><a href="#codigo" data-nav="codigo">Seu código Pascal</a><a href="#dados" data-nav="dados">Dados de entrada</a><a href="#guia" data-nav="guia">Conceitos básicos</a></nav>
+    <span class="local-label"><i></i> Tudo no seu navegador</span>
+  </header>
+  <main>
+    <section id="view-laboratorio" class="view">
+      <div class="page-heading"><div><p class="eyebrow">N08EVANDRO.PAS <span> EVANDRO LIMA BARBOSA · DS110</span></p><h1>Seu código, por dentro<span>.</span></h1><p class="lede">Acompanhe seu programa Pascal com os trechos originais, as variáveis e exemplos visíveis.</p></div><button class="button secondary" id="edit-data">Editar os dados <span aria-hidden="true">↗</span></button></div>
+      <div class="scenario-bar"><label for="scenario">Experimente um cenário</label><select id="scenario"><option value="normal">Tudo certo · exemplo completo</option><option value="invalid">Uma nota maior que 100</option><option value="duplicate">Inscrição com notas duplicadas</option><option value="missing">Um presente sem notas</option><option value="absent">Todos os candidatos ausentes</option><option value="custom" hidden>Seus dados personalizados</option></select><span id="scenario-hint">4 presentes, 1 ausente e 1 inscrição inexistente.</span></div>
+      <ol id="phases" class="phase-track" aria-label="Etapas do programa"></ol>
+      <div class="workbench">
+        <section class="panel execution-panel" aria-labelledby="step-title">
+          <div class="panel-top"><span class="label">O QUE ESTÁ ACONTECENDO</span><span class="step-count" id="step-count"></span></div>
+          <div id="lesson" aria-live="polite" aria-atomic="true"></div>
+          <div class="transport"><button class="button icon-button secondary" id="previous" aria-label="Passo anterior">←</button><button class="button primary" id="next">Começar simulação <span aria-hidden="true">→</span></button><button class="button secondary" id="play">Reproduzir</button><button class="reset-button" id="reset" title="Voltar ao início" aria-label="Reiniciar a simulação">↺</button></div>
+          <div class="playback-options"><label for="speed">Velocidade</label><select id="speed"><option value="2400">Devagar</option><option value="1200">Normal</option><option value="450">Rápida</option></select><button class="text-button" id="finish">Ver resultado final ↗</button></div>
+          <div class="progress"><div id="progress-fill"></div></div>
+          <div class="code-header"><span class="label">O MESMO PASSO NO CÓDIGO</span><div class="segmented" role="group" aria-label="Linguagem do código"><button id="code-pascal" aria-pressed="true">Pascal</button><button id="code-js" aria-pressed="false">JavaScript</button></div></div>
+          <pre id="code-snippet" tabindex="0"></pre><p id="code-note" class="micro"></p><button class="text-button" id="inspect-source">Entender este bloco do meu código →</button>
+          <details class="variable-inspector"><summary>Variáveis do seu programa <span>ao vivo</span></summary><p class="micro">Valores conhecidos neste ponto da simulação. “Ainda não” indica uma variável que será inicializada em uma etapa posterior.</p><dl id="live-variables"></dl></details>
+        </section>
+        <div class="data-panels">
+          <section class="panel" aria-labelledby="registry-title"><div class="panel-top"><div><span class="file-tag">ARQUIVO</span><h2 id="registry-title">CAND.IND <small>Cadastro original</small></h2></div><span class="badge" id="registry-status">Sem alterações</span></div><div class="table-scroll" id="registry-table"></div><div class="panel-foot"><span id="cursor-label">Cursor aguardando leitura</span><span>PF começa em <b>0</b></span></div></section>
+          <section class="panel vector-panel" aria-labelledby="vector-title"><div class="panel-top"><div><span class="file-tag mint">MEMÓRIA</span><h2 id="vector-title">Vetor de busca <small>CC + PF</small></h2></div><span class="badge neutral" id="vector-status">0 presentes</span></div><div id="vector-content"></div><div class="panel-foot"><span><b>CC</b> identifica. <b>PF</b> localiza no cadastro.</span><span id="search-legend"></span></div></section>
+        </div>
+      </div>
+      <div class="bottom-grid">
+        <section class="panel" aria-labelledby="line-title"><div class="panel-top"><div><span class="file-tag">ENTRADA</span><h2 id="line-title">NOTAS.TXT <small>Uma linha, sete campos</small></h2></div><span id="line-counter" class="badge neutral">28 caracteres por linha</span></div><div id="line-content"></div></section>
+        <section class="panel calculation-panel" aria-labelledby="calc-title"><div class="panel-top"><div><span class="file-tag amber">CÁLCULO</span><h2 id="calc-title">Nota × peso <small>O total usa pesos</small></h2></div></div><div id="calculation"></div></section>
+      </div>
+      <section id="results" class="panel result-panel" hidden></section>
+      <details class="panel history"><summary>Diário da execução <span id="history-count"></span></summary><ol id="history-list"></ol></details>
+      <p class="simulation-note">Simulação didática fiel ao fluxo do N08. O CAND.IND é representado por registros em memória; seu arquivo binário original não é alterado. A ordenação mostra o resultado de ORDEM, sem detalhar suas trocas internas.</p>
+    </section>
+    <section id="view-codigo" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">SEU ARQUIVO ORIGINAL · SEM RENOMEAR AS VARIÁVEIS</p><h1>N08EVANDRO explicado<span>.</span></h1><p class="lede">Escolha um bloco. Leia o que ele faz e encontre as mesmas linhas no seu programa.</p></div><button class="button secondary" id="download-original">Baixar seu Pascal ↓</button></div>
+      <p class="notice">Código de EVANDRO LIMA BARBOSA, conforme o texto enviado. Os números indicam as linhas desse arquivo. A simulação roda em JavaScript; os trechos abaixo são o seu Pascal original.</p>
+      <div class="source-layout"><aside class="panel source-menu"><div class="panel-top"><h2>O caminho do seu programa</h2></div><nav id="source-blocks" aria-label="Blocos do código original"></nav></aside><div class="source-reading"><section class="panel source-explanation"><div class="panel-top"><span class="file-tag" id="source-range"></span><span class="badge neutral">PASCAL ORIGINAL</span></div><div id="source-explanation"></div><div class="source-actions"><button class="button primary small" id="source-simulate">Ver este bloco em ação →</button><button class="button secondary small" id="source-toggle" aria-pressed="false">Mostrar arquivo completo</button></div></section><pre id="source-list" class="source-list" tabindex="0" aria-label="Código Pascal com números de linha"></pre></div></div>
+    </section>
+    <section id="view-dados" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">SEU PEQUENO BANCO DE TESTES</p><h1>Mude os dados. Observe o efeito<span>.</span></h1><p class="lede">Edite o cadastro e as notas. Depois, execute o mesmo algoritmo com a sua entrada.</p></div><button class="button secondary" id="restore-data">Restaurar exemplo</button></div>
+      <div class="notice">Os exemplos são fictícios e ficam nesta aba. Você pode importar e exportar JSON e TXT; o formato binário do Pascal não é importado.</div>
+      <div class="editor-grid">
+        <section class="panel"><div class="panel-top"><h2>Cadastro dos candidatos</h2><button class="button secondary small" id="add-candidate">+ Candidato</button></div><p class="editor-intro">A ordem das linhas define a posição física (PF). Cada inscrição deve ser única, de 1 a 9999.</p><div id="candidate-editor" class="table-scroll"></div><div class="editor-actions"><label class="button secondary small file-button">Importar JSON<input id="import-candidates" type="file" accept=".json,application/json"></label><button class="text-button" id="export-candidates">Exportar cadastro ↓</button></div></section>
+        <section class="panel"><div class="panel-top"><h2>Arquivo de notas</h2><span class="badge neutral">NOTAS.TXT</span></div><p class="editor-intro"><label for="notes-editor">4 caracteres de inscrição + 6 notas de 4 caracteres. Os espaços contam.</label></p><div class="ruler" aria-hidden="true">INSC  N1  N2  N3  N4  N5  N6</div><textarea id="notes-editor" spellcheck="false" rows="11" aria-describedby="notes-help"></textarea><p id="notes-help" class="micro">Uma linha por candidato. Notas inteiras de 0 a 100. Use o gerador abaixo para montar uma linha no formato correto.</p><div class="line-builder"><span class="label">GERAR UMA LINHA</span><div id="builder-inputs"></div><button class="button secondary small" id="append-line">Adicionar ao TXT</button></div><div class="editor-actions"><label class="button secondary small file-button">Importar TXT<input id="import-notes" type="file" accept=".txt,text/plain"></label><button class="text-button" id="export-notes">Exportar notas ↓</button></div></section>
+      </div>
+      <div id="editor-feedback" role="status"></div><div class="editor-bottom"><p>Aplicar os dados reinicia a simulação.</p><button class="button primary" id="apply-data">Aplicar e ir para o laboratório →</button></div>
+    </section>
+    <section id="view-guia" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">PARA ENTENDER E APRESENTAR</p><h1>Primeiro a ideia. Depois o código<span>.</span></h1><p class="lede">Abra um conceito por vez e conecte a explicação ao que você viu no laboratório.</p></div></div>
+      <div class="guide-intro"><div class="guide-number">01</div><div><h2>A pergunta que o programa responde</h2><p>“Como colocar as seis notas no cadastro da pessoa certa?” Ele lê as notas já corrigidas, encontra os presentes, aplica os pesos e atualiza o cadastro. No final, calcula as médias sem peso.</p></div></div>
+      <div id="guide-concepts" class="concepts"></div>
+      <section class="presentation"><span class="label">UM ROTEIRO PARA VOCÊ EXPLICAR</span><h2>Conte o caminho dos dados.</h2><p>“Primeiro eu leio os candidatos e separo os presentes. Guardo a inscrição e a posição de cada um no arquivo. Ordeno esse vetor para fazer a pesquisa binária. Depois confiro todas as notas. Se houver erro, não gravo. Se estiver tudo certo, localizo cada registro, aplico os pesos, calculo a soma e salvo. Ao final mostro as médias das disciplinas sem os pesos.”</p><button class="button primary" id="guide-start">Ver esse caminho funcionando →</button></section>
+    </section>
+  </main>
+  <footer><span><b>N08</b> por dentro</span><span>Aprenda experimentando. Volte um passo sempre que precisar.</span><span>EVANDRO · DS110</span></footer>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
